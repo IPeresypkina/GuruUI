@@ -1,0 +1,39 @@
+"COMMON" = "";
+
+// MARK: - Mastery Menu Screen
+"MasteryMenuScreen.title" = "Mastery Menu";
+
+// MARK: - Layout View Screen
+"LayoutViewScreen.title" = "Layout View";
+
+// MARK: - VStack View Screen
+"VStackViewScreen.title" = "VStack";
+"VStackViewScreen.introduction.title" = "Introduction";
+"VStackViewScreen.introduction.context" = "A VStack will vertically arrange other views within it.";
+"VStackViewScreen.introduction.text.first" = "VStack inside another VStack";
+"VStackViewScreen.introduction.text.second" = "This can be helpful. Why?";
+"VStackViewScreen.introduction.text.third" = "More than 10 views creates an error.";
+"VStackViewScreen.introduction.example" = "
+VStack {
+    Text(\"VStack inside another VStack\")
+    Divider()
+    Text(\"This can be helpful. Why?\")
+    Divider()
+    Text(\"More than 10 views creates an error.\")
+}
+.padding()
+.foregroundColor(Color.white)
+.background(
+    // Use a blue rectangle as the background
+    RoundedRectangle(cornerRadius: 10)
+    .foregroundColor(.blue))
+.padding()
+
+";
+
+"VStackViewScreen.nesting.title" = "Nesting";
+"VStackViewScreen.nesting.context" = "A VStack can be nested within another VStack when laying out views.";
+"VStackViewScreen.nesting.text.first" = "Leading Alignment";
+"VStackViewScreen.nesting.text.second" = "Trailing Alignment";
+"VStackViewScreen.nesting.example" = "Trailing Alignment";
+

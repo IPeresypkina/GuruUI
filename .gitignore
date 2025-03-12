@@ -1,0 +1,24 @@
+## User settings
+xcuserdata/
+
+build/
+DerivedData/
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+# Packages/
+# Package.pins
+# Package.resolved
+# *.xcodeproj
+# .swiftpm
+
+.build/
+
+### SwiftPackageManager ###
+Packages
+xcuserdata
+*.xcodeproj
