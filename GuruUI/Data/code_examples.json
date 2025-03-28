@@ -1,0 +1,12 @@
+[
+  {
+    "topic": "VStack",
+    "title": "Introduction",
+    "code":  "VStack {\n    Text(\"VStack inside another VStack\")\n    Divider()\n    Text(\"This can be helpful. Why?\")\n    Divider()\n    Text(\"More than 10 views creates an error.\")\n}\n.padding()\n.foregroundColor(Color.white)\n.background(\n    // Use a blue rectangle as the background\n    RoundedRectangle(cornerRadius: 10)\n    .foregroundColor(.blue))\n.padding()"
+  },
+  {
+    "topic": "VStack",
+    "title": "Nesting",
+    "code": "VStack(alignment: .leading) {\n    Text(\"Выравнивание по левому краю\")\n    Divider()\n    Text(\"Ещё один текст\")\n}\n.padding()"
+  }
+]

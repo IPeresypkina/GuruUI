@@ -1,8 +1,7 @@
 import SwiftUI
 
-struct VStackContentView: View {
-    @State private var isCodeVisible = false
-    @StateObject private var codeOverlayViewModel = CodeOverlayViewModelImpl()
+struct VStackContentView<ViewModel: VStackContentViewModel>: View {
+    @StateObject var model: ViewModel
     
     var body: some View {
         VStack(spacing: 10) {
@@ -16,10 +15,9 @@ struct VStackContentView: View {
         }
         .font(.title3)
         .background(Colors.background.asset.color)
-        
-        .sheet(isPresented: $isCodeVisible) {
+        .sheet(isPresented: $model.isCodeVisible) {
             CodeOverlayView(
-                model: codeOverlayViewModel,
+                model: model.codeOverlayViewModel,
                 parentViewController: UIApplication.shared.windows.first?.rootViewController
             )
         }
@@ -32,8 +30,7 @@ struct VStackContentView: View {
             
             Button("Show Code") {
                 withAnimation {
-                    codeOverlayViewModel.updateCodeExample(Ln.VStackScreen.introductionExample)
-                    isCodeVisible = true
+                    model.showCodeExample(model.codeExamples[0])
                 }
             }
             
@@ -60,8 +57,7 @@ struct VStackContentView: View {
                        desc: Ln.VStackScreen.nestingContext)
             Button("Show Code") {
                 withAnimation {
-                    codeOverlayViewModel.updateCodeExample(Ln.VStackScreen.nestingExample)
-                    isCodeVisible = true
+                    model.showCodeExample(model.codeExamples[1])
                 }
             }
             VStack(alignment: .leading, spacing: 20) {
@@ -96,5 +92,5 @@ struct VStackContentView: View {
 }
 
 #Preview {
-    VStackContentView()
+    VStackContentView(model: VStackContentViewModelImpl())
 }

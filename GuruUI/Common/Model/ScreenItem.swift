@@ -105,7 +105,7 @@ enum LayoutType: String, CaseIterable {
     
     func destinationView(breedFetcher: BreedFetcher) -> AnyView {
         switch self {
-        case .vStack: return AnyView(VStackContentView())
+        case .vStack: return AnyView(VStackContentView(model: VStackContentViewModelImpl()))
         case .lazyVStack: return AnyView(LazyVStackContentView(breedFetcher: breedFetcher))
         case .hStack: return AnyView(HStackContentView())
         case .lazyHStack: return AnyView(LazyHStackContentView(breedFetcher: breedFetcher))
