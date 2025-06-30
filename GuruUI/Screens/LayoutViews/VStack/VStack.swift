@@ -30,7 +30,7 @@ struct VStackContentView<ViewModel: VStackContentViewModel>: View {
             
             Button("Show Code") {
                 withAnimation {
-                    model.showCodeExample(model.codeExamples[0])
+//                    model.showCodeExample(model.codeExamples[0])
                 }
             }
             
@@ -57,7 +57,7 @@ struct VStackContentView<ViewModel: VStackContentViewModel>: View {
                        desc: Ln.VStackScreen.nestingContext)
             Button("Show Code") {
                 withAnimation {
-                    model.showCodeExample(model.codeExamples[1])
+//                    model.showCodeExample(model.codeExamples[1])
                 }
             }
             VStack(alignment: .leading, spacing: 20) {

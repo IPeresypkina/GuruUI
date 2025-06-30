@@ -1,14 +1,16 @@
 import SwiftUI
 
-struct LazyVStackContentView: View {
+struct LazyVStackContentView<ViewModel: LazyVStackViewModel>: View {
+    @StateObject var model: ViewModel
     @ObservedObject var breedFetcher: BreedFetcher
     
     let imageSize: CGFloat = 300
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("LazyVStack")
+            Text(Ln.LazyVStack.title)
                 .font(.largeTitle)
+            
             ScrollView {
                 introductionBlock
                 alignmentBlock
@@ -16,18 +18,17 @@ struct LazyVStackContentView: View {
                 pinnedViewsBlock
             }
         }
-        .font(.title)
+        .font(.title3)
+        .background(Colors.background.asset.color)
     }
     
     private var introductionBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Introduction",
-                       desc: "When using the LazyVStack by itself, you won't notice much of a difference from the VStack",
-                       back: .yellow,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.LazyVStack.introductionTitle,
+                       desc: Ln.LazyVStack.introductionContext)
             .layoutPriority(1)
             
-            Text("LazyVStack")
+            Text(Ln.LazyVStack.introductionTextFirst)
             LazyVStack(spacing: 10) {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
@@ -35,7 +36,7 @@ struct LazyVStackContentView: View {
             }
             .border(Color.red, width: 2)
             
-            Text("VStack")
+            Text(Ln.LazyVStack.introductionTextSecond)
             VStack(spacing: 10) {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
@@ -43,18 +44,16 @@ struct LazyVStackContentView: View {
             }
             .border(Color.red, width: 2)
             
-            Text("Notice the LazyVStack pushes out horizontally. (No Spacers being used here.)")
+            Text(Ln.LazyVStack.introductionNotice)
         }
     }
     
     private var alignmentBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Alignment",
-                       desc: "Since LazyVStacks are push-out views (horizontally) the alignment parameter could be useful.",
-                       back: .yellow,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.LazyVStack.alignmentTitle,
+                       desc: Ln.LazyVStack.alignmentContext)
             
-            Text("Leading")
+            Text(Ln.LazyVStack.alignmentLeading)
             LazyVStack(alignment: .leading, spacing: 20) {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
@@ -62,7 +61,7 @@ struct LazyVStackContentView: View {
             }
             .border(Color.red, width: 2)
             
-            Text("Trailing")
+            Text(Ln.LazyVStack.alignmentTrailing)
             LazyVStack(alignment: .trailing, spacing: 20) {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
@@ -73,11 +72,9 @@ struct LazyVStackContentView: View {
     }
     
     private var scrollViewBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "With ScrollView",
-                       desc: "The LazyVStack is best used with many views that scroll off the screen. \"Lazy\" means views off the screen are not created unless shown. This increases performance.",
-                       back: .yellow,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.LazyVStack.scrollTitle,
+                       desc: Ln.LazyVStack.scrollContext)
             if breedFetcher.isLoading {
                 LoadingView()
             } else if breedFetcher.errorMessage != nil  {
@@ -120,11 +117,9 @@ struct LazyVStackContentView: View {
     }
     
     private var pinnedViewsBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Pinned Views",
-                       desc: "LazyVStacks can also have section headers and section footers that can be pinned so they only scroll when the next header/footer comes.",
-                       back: .yellow,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.LazyVStack.pinnedTitle,
+                       desc: Ln.LazyVStack.pinnedContext)
             ScrollView {
                 LazyVStack(spacing: 5, pinnedViews: [.sectionHeaders, .sectionFooters]) {
                     ForEach(breedFetcher.breeds.prefix(5)) { breed in
@@ -162,5 +157,5 @@ struct LazyVStackContentView: View {
 }
 
 #Preview {
-    LazyVStackContentView(breedFetcher: BreedFetcher(service: APIService()))
+    LazyVStackContentView(model: LazyVStackViewModelImpl(), breedFetcher: BreedFetcher(service: APIService()))
 }

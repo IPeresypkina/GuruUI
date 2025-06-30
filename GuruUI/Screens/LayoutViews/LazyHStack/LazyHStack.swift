@@ -1,15 +1,17 @@
 import SwiftUI
 
-struct LazyHStackContentView: View {
+struct LazyHStackContentView<ViewModel: LazyHStackViewModel>: View {
+    @StateObject var model: ViewModel
     @ObservedObject var breedFetcher: BreedFetcher
     @State private var whatAppeared = ""
     
     let imageSize: CGFloat = 300
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("LazyHStack")
+        VStack(spacing: 10) {
+            Text(Ln.LazyHStackScreen.title)
                 .font(.largeTitle)
+            
             ScrollView {
                 introductionBlock
                 alignmentBlock
@@ -18,18 +20,17 @@ struct LazyHStackContentView: View {
                 pinnedViewsBlock
             }
         }
-        .font(.title)
+        .font(.title3)
+        .background(Colors.background.asset.color)
     }
     
     private var introductionBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Introduction",
-                       desc: "When using the LazyHStack by itself, you won't notice much of a difference from the HStack.",
-                       back: .yellow,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.LazyHStackScreen.introductionTitle,
+                       desc: Ln.LazyHStackScreen.introductionContext)
             .layoutPriority(1)
             
-            Text("LazyHStack")
+            Text(Ln.LazyHStackScreen.introductionTextFirst)
             LazyHStack(spacing: 40) {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
@@ -37,28 +38,24 @@ struct LazyHStackContentView: View {
             }
             .border(.red, width: 2)
             
-            Text("HStack")
+            Text(Ln.LazyHStackScreen.introductionTextSecond)
             HStack(spacing: 40) {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
                 Image(systemName: "3.circle")
             }
             .border(.red, width: 2)
-            DescView(desc: "Notice the LazyHStack pushes out vertically. (No Spacers being used here.)",
-                     back: .yellow,
-                     textColor: .black)
+            DescView(desc: Ln.LazyHStackScreen.introductionNotice)
         }
     }
     
     private var alignmentBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Alignment",
-                       desc: "Since LazyHStacks are push-out views (vertically) the alignment parameter could be useful.",
-                       back: .yellow,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.LazyHStackScreen.alignmentTitle,
+                       desc: Ln.LazyHStackScreen.alignmentContext)
             .layoutPriority(1)
             
-            Text("Top")
+            Text(Ln.LazyHStackScreen.alignmentTextFirst)
             LazyHStack(alignment: .top, spacing: 40) {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
@@ -67,7 +64,7 @@ struct LazyHStackContentView: View {
             .frame(height: 150)
             .border(.red, width: 2)
             
-            Text("Bottom")
+            Text(Ln.LazyHStackScreen.alignmentTextSecond)
             LazyHStack(alignment: .bottom, spacing: 40) {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
@@ -79,11 +76,9 @@ struct LazyHStackContentView: View {
     }
     
     private var scrollViewBlock: some View {
-        VStack(spacing: 10.0) {
-            HeaderView(subtitle: "With ScrollView",
-                       desc: "The LazyHStack is best used with many views that scroll off the screen. \"Lazy\" means views off the screen are not created unless shown. This increases performance.",
-                       back: .yellow,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.LazyHStackScreen.scrollTitle,
+                       desc: Ln.LazyHStackScreen.scrollContext)
             
             Spacer()
             
@@ -105,11 +100,9 @@ struct LazyHStackContentView: View {
     }
     
     private var headersFootersBlock: some View {
-        VStack(spacing: 10.0) {
-            HeaderView(subtitle: "Headers & Footers",
-                       desc: "Using the Section view, you can add a header and footer inside a LazyHStack.",
-                       back: .yellow,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.LazyHStackScreen.headersFootersTitle,
+                       desc: Ln.LazyHStackScreen.headersFootersContext)
             
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 5) {
@@ -148,11 +141,9 @@ struct LazyHStackContentView: View {
     }
     
     private var pinnedViewsBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Pinned Views",
-                       desc: "LazyHStacks can also have section headers and section footers that can be pinned so they only scroll when the next header/footer comes.",
-                       back: .yellow,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.LazyHStackScreen.pinnedTitle,
+                       desc: Ln.LazyHStackScreen.pinnedContext)
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 5, pinnedViews: [.sectionHeaders, .sectionFooters]) {
                     ForEach(breedFetcher.breeds.prefix(5)) { breed in
@@ -228,5 +219,5 @@ struct TeamFooterView: View {
 }
 
 #Preview {
-    LazyHStackContentView(breedFetcher: BreedFetcher(service: APIService()))
+    LazyHStackContentView(model: LazyHStackViewModelImpl(), breedFetcher: BreedFetcher(service: APIService()))
 }
