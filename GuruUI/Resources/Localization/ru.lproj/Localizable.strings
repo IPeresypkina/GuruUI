@@ -1,7 +1,7 @@
 "COMMON" = "";
 
-// MARK: - Mastery Menu Screen
-"MasteryMenuScreen.title" = "Mastery Menu";
+// MARK: - Guru Menu Screen
+"MasteryMenuScreen.title" = "Guru Menu";
 
 // MARK: - Layout View Screen
 "LayoutViewScreen.title" = "Layout View";
@@ -19,3 +19,129 @@
 "VStackViewScreen.nesting.text.first" = "Leading Alignment";
 "VStackViewScreen.nesting.text.second" = "Trailing Alignment";
 
+// MARK: - HStack View Screen
+"HStackScreen.title" = "HStack";
+"HStackScreen.introduction.title" = "Introduction";
+"HStackScreen.introduction.context" = "An HStack will horizontally arrange other views within it.";
+"HStackScreen.introduction.text.first" = "View 1";
+"HStackScreen.introduction.text.second" = "View 2";
+"HStackScreen.introduction.text.third" = "View 3";
+
+"HStackScreen.spacing.title" = "Spacing";
+"HStackScreen.spacing.context" = "The HStack initializer allows you to set the spacing between all the views inside the HStack.";
+"HStackScreen.spacing.text.first" = "Default Spacing";
+"HStackScreen.spacing.text.second" = "Spacing: 100";
+
+"HStackScreen.verticalAlignment.title" = "Vertical Alignment";
+"HStackScreen.verticalAlignment.context" = "By default, views within an HStack are vertically aligned in the center.";
+"HStackScreen.verticalAlignment.leading" = "Leading";
+"HStackScreen.verticalAlignment.trailing" = "Trailing";
+"HStackScreen.verticalAlignment.center" = "Center";
+"HStackScreen.verticalAlignment.bottom" = "Bottom";
+"HStackScreen.verticalAlignment.top" = "Top";
+
+"HStackScreen.textAlignment.title" = "Text Alignment";
+"HStackScreen.textAlignment.context" = "HStacks have another alignment option to help better align the bottom of text.";
+"HStackScreen.textAlignment.notice" = "Notice the bottom of the text isn't really aligned above. Use firstTextBaseline or lastTextBaseline instead:";
+"HStackScreen.textAlignment.text.first" = "Hello";
+"HStackScreen.textAlignment.text.second" = "amazing";
+"HStackScreen.textAlignment.text.third" = "developer!";
+
+"HStackScreen.textAlignmentFirstLast.title" = "First & Last Text Alignment";
+"HStackScreen.textAlignmentFirstLast.context" = "The firstTextBaseline will align the bottom of the text on the first lines (\"Amazing\" and \"Really\").";
+"HStackScreen.textAlignmentFirstLast.notice" = "The lastTextBaseline will align the bottom of the text on the last lines (\"developer\" and \"developer\").";
+"HStackScreen.textAlignmentFirstLast.text.first" = "Amazing developer";
+"HStackScreen.textAlignmentFirstLast.text.second" = "Really amazing developer";
+
+"HStackScreen.customizing.title" = "Customizing";
+"HStackScreen.customizing.context" = "HStacks are views that can have modifiers applied to them just like any other view.";
+"HStackScreen.customizing.text.first" = "Leading";
+"HStackScreen.customizing.text.second" = "Middle";
+"HStackScreen.customizing.text.third" = "Trailing";
+
+"HStackScreen.layoutPriority.title" = "Layout Priority";
+"HStackScreen.layoutPriority.context" = "Use the layoutPriority modifier to give priority to the space a view needs to show its content.";
+"HStackScreen.layoutPriority.text.first" = "SwiftUI";
+"HStackScreen.layoutPriority.text.second" = "🐱";
+"HStackScreen.layoutPriority.text.third" = "Brings Balance";
+"HStackScreen.layoutPriority.notice.first" = ".layoutPriority(1) is set on 'Brings Balance'";
+"HStackScreen.layoutPriority.notice.second" = ".layoutPriority(1) is set on 'SwiftUI'";
+
+// MARK: – LazyHStack View Screen
+"LazyHStackScreen.title" = "LazyHStack";
+"LazyHStackScreen.introduction.title" = "Introduction";
+"LazyHStackScreen.introduction.context" = "When using the LazyHStack by itself, you won't notice much of a difference from the HStack.";
+"LazyHStackScreen.introduction.text.first" = "LazyHStack";
+"LazyHStackScreen.introduction.text.second" = "HStack";
+"LazyHStackScreen.introduction.notice" = "Notice the LazyHStack pushes out vertically. (No Spacers being used here.)";
+
+"LazyHStackScreen.alignment.title" = "Alignment";
+"LazyHStackScreen.alignment.context" = "Since LazyHStacks are push-out views (vertically) the alignment parameter could be useful.";
+"LazyHStackScreen.alignment.text.first" = "Top";
+"LazyHStackScreen.alignment.text.second" = "Bottom";
+
+"LazyHStackScreen.scrollView.title" = "With ScrollView";
+"LazyHStackScreen.scrollView.context" = "The LazyHStack is best used with many views that scroll off the screen. \"Lazy\" means views off the screen are not created unless shown. This increases performance.";
+
+"LazyHStackScreen.headersFooters.title" = "Headers & Footers";
+"LazyHStackScreen.headersFooters.context" = "Using the Section view, you can add a header and footer inside a LazyHStack.";
+
+"LazyHStackScreen.pinned.title" = "Pinned Views";
+"LazyHStackScreen.pinned.context" = "LazyHStacks can also have section headers and section footers that can be pinned so they only scroll when the next header/footer comes.";
+
+// MARK: – LazyVStack View Screen
+"LazyVStackScreen.title" = "LazyVStack";
+"LazyVStackScreen.introduction.title" = "Introduction";
+"LazyVStackScreen.introduction.context" = "When using the LazyVStack by itself, you won't notice much of a difference from the VStack";
+"LazyVStackScreen.introduction.text.first" = "LazyVStack";
+"LazyVStackScreen.introduction.text.second" = "VStack";
+"LazyVStackScreen.introduction.notice" = "Notice the LazyVStack pushes out horizontally. (No Spacers being used here.)";
+
+"LazyVStackScreen.alignment.title" = "Alignment";
+"LazyVStackScreen.alignment.context" = "Since LazyVStacks are push-out views (horizontally) the alignment parameter could be useful.";
+"LazyVStackScreen.alignment.leading" = "Leading";
+"LazyVStackScreen.alignment.trailing" = "Trailing";
+
+"LazyVStackScreen.scrollView.title" = "With ScrollView";
+"LazyVStackScreen.scrollView.context" = "The LazyVStack is best used with many views that scroll off the screen. \"Lazy\" means views off the screen are not created unless shown. This increases performance.";
+
+"LazyVStackScreen.pinned.title" = "Pinned Views";
+"LazyVStackScreen.pinned.context" = "LazyVStacks can also have section headers and section footers that can be pinned so they only scroll when the next header/footer comes.";
+
+// MARK: – Grid View Screen
+"GridScreen.title" = "Grid";
+"GridScreen.introduction.title" = "Introduction";
+"GridScreen.introduction.context" = "The Grid creates invisible columns that views in other rows will follow.";
+"GridScreen.introduction.text.first" = "Column 1";
+"GridScreen.introduction.text.second" = "Column 2";
+
+"GridScreen.comparison.title" = "Comparison";
+"GridScreen.comparison.context" = "If you create the same view using VStacks and HStacks you can better understand how a Grid view creates invisible columns where other views do not. Without a Grid, other views follow their own layout and alignment rules.";
+"GridScreen.comparison.text.first" = "Column 1";
+"GridScreen.comparison.text.second" = "Column 2";
+
+"GridScreen.columnCount.title" = "Column Count";
+"GridScreen.columnCount.context" = "The grid row with the most views will establish how many columns there will be. Views within a GridRow will always stay within a column.";
+
+"GridScreen.noGridRow.title" = "No GridRow";
+"GridScreen.noGridRow.context" = "This view is in the Grid but NOT inside a GridRow. This means it will follow its own layout rules and not be restricted to the columns the other GridRows create.";
+"GridScreen.noGridRow.text.first" = "Column 1";
+"GridScreen.noGridRow.text.second" = "Column 2";
+
+"GridScreen.sizing.title" = "Sizing";
+"GridScreen.sizing.context" = "A width is set to this column, but as you can see, it does not determine the width of the whole column. The second row’s width is “stronger” for this column. How do you make it “weaker” so the second row’s column width is the same? The height is set for this view but how do you get the other views in this row (blue and orange) to not expand beyond this height?";
+
+"GridScreen.unSizing.title" = "Unsized Axes";
+"GridScreen.unSizing.context" = "By using the unsized axes modifier, you are telling that grid cell not to size itself but to rather use the size of the other views in the same row/column (vertical/horizontal). You will also notice that this also affects the height/width of the entire Grid as it pulls in horizontally and vertically. This is something to keep in mind when using this view and designing your UI.";
+
+"GridScreen.alignment.title" = "Alignment";
+"GridScreen.alignment.context" = "You can set alignment for all views on a grid level. The default alignment is center. You can override the Grid alignment by setting alignment on the GridRow. You can override the GridRow alignment by setting alignment on the grid cell using a modifier.";
+"GridScreen.alignment.top" = "Top";
+"GridScreen.alignment.bottom" = "Bottom";
+"GridScreen.alignment.trailing" = "Trailing";
+
+"GridScreen.spacing.title" = "Spacing";
+"GridScreen.spacing.context" = "You can set horizontal and vertical spacing for all views within the Grid.";
+
+"GridScreen.cellColumns.title" = "Cell Columns";
+"GridScreen.cellColumns.context" = "You can have cells span multiple columns with a modifier.";

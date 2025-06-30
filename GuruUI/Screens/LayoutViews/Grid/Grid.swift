@@ -1,9 +1,11 @@
 import SwiftUI
 
-struct GridContentView: View {
+struct GridContentView<ViewModel: GridViewModel>: View {
+    @StateObject var model: ViewModel
+    
     var body: some View {
         VStack(spacing: 10) {
-            Text("")
+            Text(Ln.Grid.title)
                 .font(.largeTitle)
             
             ScrollView {
@@ -18,25 +20,27 @@ struct GridContentView: View {
                 cellColumns
             }
         }
+        .font(.title3)
+        .background(Colors.background.asset.color)
     }
     
     private var introBlock: some View {
         VStack {
-            HeaderView(subtitle: "Introduction",
-                       desc: "The Grid creates invisible columns that views in other rows will follow.")
+            HeaderView(subtitle: Ln.Grid.introductionTitle,
+                       desc: Ln.Grid.introductionContext)
             Grid {
                 GridRow {
-                    Text("Column 1")
+                    Text(Ln.Grid.introductionTextFirst)
                     Color.blue
                         .opacity(0.5)
-                        .overlay(Text("Column 2"))
+                        .overlay(Text(Ln.Grid.introductionTextSecond))
                         .frame(height: 50)
                 }
                 GridRow {
-                    Text("Column 1")
+                    Text(Ln.Grid.introductionTextFirst)
                 }
                 GridRow {
-                    Text("Column 1")
+                    Text(Ln.Grid.introductionTextFirst)
                     Image(systemName: "arrow.left")
                 }
             }
@@ -46,21 +50,21 @@ struct GridContentView: View {
     
     private var comparisonBlock: some View {
         VStack {
-            HeaderView(subtitle: "Comparison",
-                       desc: "If you create the same view using VStacks and HStacks you can better understand how a Grid view creates invisible columns where other views do not. Without a Grid, other views follow their own layout and alignment rules.")
+            HeaderView(subtitle: Ln.Grid.comparisonTitle,
+                       desc: Ln.Grid.comparisonContext)
             VStack {
                 HStack {
-                    Text("Column 1")
+                    Text(Ln.Grid.comparisonTextFirst)
                     Color.blue
                         .opacity(0.5)
-                        .overlay(Text("Column 2"))
+                        .overlay(Text(Ln.Grid.comparisonTextSecond))
                         .frame(height: 50)
                 }
                 HStack {
-                    Text("Column 1")
+                    Text(Ln.Grid.comparisonTextFirst)
                 }
                 HStack {
-                    Text("Column 1")
+                    Text(Ln.Grid.comparisonTextFirst)
                     Image(systemName: "arrow.left")
                 }
             }
@@ -70,8 +74,8 @@ struct GridContentView: View {
     
     private var columnCountBlock: some View {
         VStack {
-            HeaderView(subtitle: "Column Count", 
-                       desc: "The grid row with the most views will establish how many columns there will be. Views within a GridRow will always stay within a column.")
+            HeaderView(subtitle: Ln.Grid.columnCountTitle,
+                       desc: Ln.Grid.columnCountContext)
             Grid {
                 GridRow {
                     ForEach(1..<3) { number in
@@ -95,12 +99,12 @@ struct GridContentView: View {
     
     private var noGridRowBlock: some View {
         VStack {
-            HeaderView(subtitle: "No GridRow",
-                       desc: "This view is in the Grid but NOT inside a GridRow. This means it will follow its own layout rules and not be restricted to the columns the other GridRows create.")
+            HeaderView(subtitle: Ln.Grid.noGridRowTitle,
+                       desc: Ln.Grid.noGridRowContext)
             Grid {
                 GridRow {
-                    Text("Column 1")
-                    Text("Column 2")
+                    Text(Ln.Grid.noGridRowTextFirst)
+                    Text(Ln.Grid.noGridRowTextSecond)
                 }
                 GridRow {
                     RoundedRectangle(cornerRadius: 16)
@@ -128,8 +132,8 @@ struct GridContentView: View {
     
     private var sizingBlock: some View {
         VStack {
-            HeaderView(subtitle: "Sizing",
-                       desc: "A width is set to this column, but as you can see, it does not determine the width of the whole column. The second row’s width is “stronger” for this column. How do you make it “weaker” so the second row’s column width is the same? The height is set for this view but how do you get the other views in this row (blue and orange) to not expand beyond this height?")
+            HeaderView(subtitle: Ln.Grid.sizingTitle,
+                       desc: Ln.Grid.sizingContext)
             Grid {
                 GridRow {
                     Color.blue.opacity(0.5)
@@ -152,8 +156,8 @@ struct GridContentView: View {
     
     private var unSizingBlock: some View {
         VStack {
-            HeaderView(subtitle: "Unsized Axes",
-                       desc: "By using the unsized axes modifier, you are telling that grid cell not to size itself but to rather use the size of the other views in the same row/column (vertical/horizontal). You will also notice that this also affects the height/width of the entire Grid as it pulls in horizontally and vertically. This is something to keep in mind when using this view and designing your UI.")
+            HeaderView(subtitle: Ln.Grid.unSizingTitle,
+                       desc: Ln.Grid.unSizingContext)
             Grid {
                 GridRow {
                     Color.blue.opacity(0.5)
@@ -178,19 +182,19 @@ struct GridContentView: View {
     
     private var alignmentBlock: some View {
         VStack {
-            HeaderView(subtitle: "Alignmant",
-                       desc: "You can set alignment for all views on a grid level. The default alignment is center. You can override the Grid alignment by setting alignment on the GridRow. You can override the GridRow alignment by setting alignment on the grid cell using a modifier.")
+            HeaderView(subtitle: Ln.Grid.alignmentTitle,
+                       desc: Ln.Grid.alignmentContext)
             Grid(alignment: .top) {
                 GridRow {
-                    Text("Top")
+                    Text(Ln.Grid.alignmentExampleTop)
                     Color.blue.opacity(0.5)
                 }
                 .frame(height: 200)
                 GridRow(alignment: .bottom) {
-                    Text("Bottom")
+                    Text(Ln.Grid.alignmentExampleBottom)
                     VStack(alignment: .trailing) {
-                        Text("Top")
-                        Text("Trailing")
+                        Text(Ln.Grid.alignmentExampleTop)
+                        Text(Ln.Grid.alignmentExampleTrailing)
                     }
                     .gridCellAnchor(.topTrailing)
                     Color.blue.opacity(0.5)
@@ -204,8 +208,8 @@ struct GridContentView: View {
     
     private var spacing: some View {
         VStack {
-            HeaderView(subtitle: "Spacing",
-                       desc: "You can set horizontal and vertical spacing for all views within the Grid.")
+            HeaderView(subtitle: Ln.Grid.spacingTitle,
+                       desc: Ln.Grid.spacingContext)
             Grid(horizontalSpacing: 24, verticalSpacing: 24) {
                 GridRow {
                     Color.green.opacity(0.5)
@@ -237,8 +241,8 @@ struct GridContentView: View {
     
     private var cellColumns: some View {
         VStack {
-            HeaderView(subtitle: "Cell Columns",
-                       desc: "You can have cells span multiple columns with a modifier.")
+            HeaderView(subtitle: Ln.Grid.cellColumnsTitle,
+                       desc: Ln.Grid.cellColumnsContext)
             Grid(horizontalSpacing: 24, verticalSpacing: 24) {
                 GridRow {
                     Color.green.opacity(0.5)
@@ -270,5 +274,5 @@ struct GridContentView: View {
 
 
 #Preview {
-    GridContentView()
+    GridContentView(model: GridViewModelImpl())
 }

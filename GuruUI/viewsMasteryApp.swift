@@ -10,15 +10,15 @@ import SwiftUI
 @main
 struct viewsMasteryApp: App {
     
-    let coreDataManager = CoreDataManager.shared
+//    let coreDataManager = CoreDataManager.shared
     
     var body: some Scene {
         WindowGroup {
             MainScreenView()
-                .onAppear {
+//                .onAppear {
 //                    coreDataManager.deleteAllCodeExample()
-                    coreDataManager.preloadCodeExamplesIfNeeded()
-                }
+//                    coreDataManager.preloadCodeExamplesIfNeeded()
+//                }
         }
     }
 }

@@ -1,10 +1,13 @@
 import SwiftUI
 
-struct HStackContentView: View {
+struct HStackContentView<ViewModel: HStackViewModel>: View {
+    @StateObject var model: ViewModel
+    
     var body: some View {
-        VStack(spacing: 20) {
-            Text("HStack")
+        VStack(spacing: 10) {
+            Text(Ln.HStack.title)
                 .font(.largeTitle)
+            
             ScrollView {
                 introductionBlock
                 spacingBlock
@@ -15,30 +18,27 @@ struct HStackContentView: View {
                 layoutPriorityBlock
             }
         }
-        .font(.title)
+        .font(.title3)
+        .background(Colors.background.asset.color)
     }
     
     private var introductionBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Introduction",
-                       desc: "An HStack will horizontally arrange other views within it.",
-                       back: .orange,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.HStack.introductionTitle,
+                       desc: Ln.HStack.introductionContext)
             HStack {
-                Text("View 1")
-                Text("View 2")
-                Text("View 3")
+                Text(Ln.HStack.introductionTextFirst)
+                Text(Ln.HStack.introductionTextSecond)
+                Text(Ln.HStack.introductionTextThird)
             }
         }
     }
     
     private var spacingBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Spacing",
-                       desc: "The HStack initializer allows you to set the spacing between all the views inside the HStack.",
-                       back: .orange,
-                       textColor: .black)
-            Text("Default Spacing")
+        VStack {
+            HeaderView(subtitle: Ln.HStack.spacingTitle,
+                       desc: Ln.HStack.spacingContext)
+            Text(Ln.HStack.spacingTextFirst)
             HStack {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
@@ -46,7 +46,7 @@ struct HStackContentView: View {
             }
             .font(.largeTitle)
             
-            Text("Spacing: 100")
+            Text(Ln.HStack.spacingTextSecond)
                 .font(.title)
             HStack(spacing: 100) {
                 Image(systemName: "1.circle")
@@ -58,40 +58,38 @@ struct HStackContentView: View {
     }
     
     private var verticalAlignmentBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Vertical Alignment",
-                       desc: "By default, views within an HStack are vertically aligned in the center.",
-                       back: .orange,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.HStack.verticalAlignmentTitle,
+                       desc: Ln.HStack.verticalAlignmentContext)
             HStack {
                 Rectangle().foregroundColor(.orange).frame(width: 25)
-                Text("Leading")
+                Text(Ln.HStack.verticalAlignmentExampleLeading)
                 Spacer()
-                Text("Center")
+                Text(Ln.HStack.verticalAlignmentExampleCenter)
                 Spacer()
-                Text("Trailing")
+                Text(Ln.HStack.verticalAlignmentExampleTrailing)
                     .padding(.trailing)
             }
             .frame(height: 150)
             .border(.orange)
             HStack(alignment: .top) {
                 Rectangle().foregroundColor(.orange).frame(width: 25)
-                Text("Leading")
+                Text(Ln.HStack.verticalAlignmentExampleLeading)
                 Spacer()
-                Text("Top")
+                Text(Ln.HStack.verticalAlignmentExampleTop)
                 Spacer()
-                Text("Trailing")
+                Text(Ln.HStack.verticalAlignmentExampleTrailing)
                     .padding(.trailing)
             }
             .frame(height: 150)
             .border(.orange)
             HStack(alignment: .bottom) {
                 Rectangle().foregroundColor(.orange).frame(width: 25)
-                Text("Leading")
+                Text(Ln.HStack.verticalAlignmentExampleLeading)
                 Spacer()
-                Text("Bottom")
+                Text(Ln.HStack.verticalAlignmentExampleBottom)
                 Spacer()
-                Text("Trailing")
+                Text(Ln.HStack.verticalAlignmentExampleTrailing)
                     .padding(.trailing)
             }
             .frame(height: 150)
@@ -100,26 +98,22 @@ struct HStackContentView: View {
     }
     
     private var textAlignmentBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Text Alignment",
-                       desc: "HStacks have another alignment option to help better align the bottom of text.",
-                       back: .orange,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.HStack.textAlignmentTitle,
+                       desc: Ln.HStack.textAlignmentContext)
             HStack(alignment: .bottom) {
-                Text("Hello")
-                Text("amazing")
+                Text(Ln.HStack.textAlignmentTextFirst)
+                Text(Ln.HStack.textAlignmentTextSecond)
                     .font(.largeTitle)
-                Text("developer!")
+                Text(Ln.HStack.textAlignmentTextThird)
             }
             .font(.body)
-            DescView(desc: "Notice the bottom of the text isn't really aligned above. Use firstTextBaseline or lastTextBaseline instead:", 
-                     back: .orange,
-                     textColor: .black)
+            DescView(desc: Ln.HStack.textAlignmentNotice)
             HStack(alignment: .firstTextBaseline) {
-                Text("Hello")
-                Text("amazing")
+                Text(Ln.HStack.textAlignmentTextFirst)
+                Text(Ln.HStack.textAlignmentTextSecond)
                     .font(.largeTitle)
-                Text("developer!")
+                Text(Ln.HStack.textAlignmentTextThird)
             }
             .font(.body)
         }
@@ -127,25 +121,21 @@ struct HStackContentView: View {
     
     private var textAlignmentFirstLast: some View {
         VStack {
-            HeaderView(subtitle: "First & Last Text Alignment",
-                       desc: "The firstTextBaseline will align the bottom of the text on the first lines (\"Amazing\" and \"Really\").",
-                       back: .orange,
-                       textColor: .black)
+            HeaderView(subtitle: Ln.HStack.textAlignmentFirstLastTitle,
+                       desc: Ln.HStack.textAlignmentFirstLastContext)
             HStack(alignment: .firstTextBaseline) {
-                Text("Amazing developer")
+                Text(Ln.HStack.textAlignmentFirstLastTextFirst)
                     .font(.title3)
-                Text("Really amazing developer")
+                Text(Ln.HStack.textAlignmentFirstLastTextSecond)
             }
             .frame(width: 250)
             
-            DescView(desc: "The lastTextBaseline will align the bottom of the text on the last lines (\"developer\" and \"developer\").",
-                     back: .orange,
-                     textColor: .black)
+            DescView(desc: Ln.HStack.textAlignmentFirstLastNotice)
                      
             HStack(alignment: .lastTextBaseline) {
-                Text("Amazing developer")
+                Text(Ln.HStack.textAlignmentFirstLastTextFirst)
                     .font(.title3)
-                Text("Really amazing developer")
+                Text(Ln.HStack.textAlignmentFirstLastTextSecond)
             }
             .frame(width: 250)
             
@@ -153,15 +143,13 @@ struct HStackContentView: View {
     }
     
     private var customizingBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Customizing",
-                       desc: "HStacks are views that can have modifiers applied to them just like any other view.",
-                       back: .orange,
-                       textColor: .black)
+        VStack {
+            HeaderView(subtitle: Ln.HStack.customizingTitle,
+                       desc: Ln.HStack.customizingContext)
             HStack {
-                Text("Leading")
-                Text("Middle")
-                Text("Trailing")
+                Text(Ln.HStack.customizingTextFirst)
+                Text(Ln.HStack.customizingTextSecond)
+                Text(Ln.HStack.customizingTextThird)
             }
             .padding()
             .border(.orange)
@@ -191,42 +179,40 @@ struct HStackContentView: View {
     }
     
     var layoutPriorityBlock: some View {
-        VStack(spacing: 20) {
-            HeaderView(subtitle: "Layout Priority",
-                       desc: "Use the layoutPriority modifier to give priority to the space a view needs to show its content.",
-                       back: .orange,
-                       textColor: .black)
-            Text(".layoutPriority(1) is set on 'Brings Balance'")
+        VStack {
+            HeaderView(subtitle: Ln.HStack.layoutPriorityTitle,
+                       desc: Ln.HStack.layoutPriorityContext)
+            Text(Ln.HStack.layoutPriorityNoticeFirst)
                 .font(.title3)
             HStack {
-                Text("SwiftUI")
+                Text(Ln.HStack.layoutPriorityTextFirst)
                     .font(.largeTitle)
                     .lineLimit(1)
-                Text("🐱")
+                Text(Ln.HStack.layoutPriorityTextSecond)
                     .font(.system(size: 70))
-                Text("Brings Balance")
+                Text(Ln.HStack.layoutPriorityTextThird)
                     .font(.largeTitle)
                     .layoutPriority(1)
             }
             .padding(.horizontal)
             Divider()
             HStack {
-                Text("SwiftUI")
+                Text(Ln.HStack.layoutPriorityTextFirst)
                     .font(.largeTitle)
                     .layoutPriority(1)
-                Text("🐱")
+                Text(Ln.HStack.layoutPriorityTextSecond)
                     .font(.system(size: 70))
-                Text("Brings Balance")
+                Text(Ln.HStack.layoutPriorityTextThird)
                     .font(.largeTitle)
                     .lineLimit(1)
             }
             .padding(.horizontal)
-            Text(".layoutPriority(1) is set on 'SwiftUI'")
+            Text(Ln.HStack.layoutPriorityNoticeSecond)
                 .font(.title3)
         }
     }
 }
 
 #Preview {
-    HStackContentView()
+    HStackContentView(model: HStackViewModelImpl())
 }
