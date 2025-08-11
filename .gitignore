@@ -1,24 +1,30 @@
+# ================
+# macOS
+# ================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
 ## User settings
 xcuserdata/
 
-build/
-DerivedData/
+# ================
+# Xcode
+# ================
+.build
+Derived
 
 ## App packaging
 *.ipa
 *.dSYM.zip
 *.dSYM
 
-# Swift Package Manager
-# Packages/
-# Package.pins
-# Package.resolved
-# *.xcodeproj
-# .swiftpm
-
+# ================
+Swift Package Manager
+# ================
+Packages/
+Package.pins
+.swiftpm
+Package.resolved
 .build/
-
-### SwiftPackageManager ###
-Packages
-xcuserdata
-*.xcodeproj
