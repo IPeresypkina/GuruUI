@@ -145,3 +145,29 @@
 
 "GridScreen.cellColumns.title" = "Cell Columns";
 "GridScreen.cellColumns.context" = "You can have cells span multiple columns with a modifier.";
+
+// MARK: – ZStack View Screen
+"ZStackViewScreen.title" = "ZStack";
+"ZStackViewScreen.introduction.title" = "Introduction";
+"ZStackViewScreen.introduction.text.first" = "ZStacks are great for setting a background color.";
+"ZStackViewScreen.introduction.text.second" = "But notice the Color stops at the Safe Areas edges (white areas on top and
+bottom).";
+"ZStackViewScreen.ignoreSA.title" = "Ignores Safe Area Edges";
+"ZStackViewScreen.ignoreSA.text.first" = "Ignoring the Safe Areas will extend a view to fill the whole scene.";
+"ZStackViewScreen.ignoreSA.text.second" = "Having the ZStack edges ignoring the safe area edges might be a mistake.
+\nYou notice that the top Text view is completely under the notch.";
+"ZStackViewScreen.colorIgnoreSA.title" = "IgColor Ignores Safe Area Edges";
+"ZStackViewScreen.colorIgnoreSA.text" = "To solve the problem, you want just the color (bottom layer) to ignore
+the safe area edges and fill the screen. Other layers above it will stay within the Safe
+Area.";
+"ZStackViewScreen.layering.title" = "Layering & Aligning";
+"ZStackViewScreen.layering.context" = "ZStacks are great for layering views. For example, putting text on
+top of an image.";
+"ZStackViewScreen.layering.text.first" =  "Yosemite National Park";
+"ZStackViewScreen.layering.text.desc" =  "But what if you wanted to have all the views align to the bottom?";
+"ZStackViewScreen.aligning.title" = "Aligning";
+"ZStackViewScreen.aligning.context" = "The ZStack allows you to align all the views within it.";
+"ZStackViewScreen.aligning.text.first" =  "Yosemite National Park";
+
+
+
