@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B24EFCF2E4A2DA000267B77 /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B24EFCE2E4A2D9B00267B77 /* SpacerView.swift */; };
 		4907D9502D2FEAF0003C1272 /* viewsMasteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907D94F2D2FEAF0003C1272 /* viewsMasteryApp.swift */; };
 		4907D9542D2FEAF3003C1272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4907D9532D2FEAF3003C1272 /* Assets.xcassets */; };
 		4907D9572D2FEAF3003C1272 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4907D9562D2FEAF3003C1272 /* Preview Assets.xcassets */; };
@@ -72,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B24EFCE2E4A2D9B00267B77 /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		4907D94C2D2FEAF0003C1272 /* GuruUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuruUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4907D94F2D2FEAF0003C1272 /* viewsMasteryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewsMasteryApp.swift; sourceTree = "<group>"; };
 		4907D9532D2FEAF3003C1272 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B24EFCD2E4A2D9100267B77 /* Spacer */ = {
+			isa = PBXGroup;
+			children = (
+				1B24EFCE2E4A2D9B00267B77 /* SpacerView.swift */,
+			);
+			path = Spacer;
+			sourceTree = "<group>";
+		};
 		4907D9432D2FEAF0003C1272 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +193,7 @@
 		4907D95D2D2FECD6003C1272 /* LayoutViews */ = {
 			isa = PBXGroup;
 			children = (
+				1B24EFCD2E4A2D9100267B77 /* Spacer */,
 				49876B112E132FE4000E58F8 /* ZStack */,
 				498BA9912DBABAE700BF9F99 /* Grid */,
 				498BA98E2DBA9CE100BF9F99 /* HStack */,
@@ -609,6 +620,7 @@
 				4957711F2D31CE1D0001E7B1 /* ScreenItem.swift in Sources */,
 				49AA9A6B2D304BC800154AA9 /* APIMockService.swift in Sources */,
 				495771412D31D3D50001E7B1 /* ImageModifiersScreenView.swift in Sources */,
+				1B24EFCF2E4A2DA000267B77 /* SpacerView.swift in Sources */,
 				495771372D31D3530001E7B1 /* PaintsScreenView.swift in Sources */,
 				496810D92D91724E008DE2AE /* CoreDataManager.swift in Sources */,
 				498BA9902DBA9E0E00BF9F99 /* HStackViewModel.swift in Sources */,
